@@ -1,9 +1,4 @@
 <?php
-/* don't allow this page to be requested directly from browser */
-if (!defined('QA_VERSION')) {
-    header('Location: /');
-    exit;
-}
 
 class useo_options
 {
@@ -100,8 +95,6 @@ class useo_options
             // URLs section
             qa_opt('useo_url_cleanup', (int)qa_post_text('useo_url_cleanup'));
             qa_opt('useo_url_dont_make_empty', (int)qa_post_text('useo_url_dont_make_empty'));
-            qa_opt('useo_url_q_uppercase', (int)qa_post_text('useo_url_q_uppercase'));
-            qa_opt('useo_url_tag_uppercase', (int)qa_post_text('useo_url_tag_uppercase'));
             qa_opt('useo_url_q_uppercase_type', (int)qa_post_text('useo_url_q_uppercase_type'));
             qa_opt('useo_url_tag_uppercase_type', (int)qa_post_text('useo_url_tag_uppercase_type'));
             $words = qa_post_text('useo_url_words_raw');
@@ -155,9 +148,6 @@ class useo_options
             qa_opt('useo_social_tc_desc_length', qa_post_text('useo_social_tc_desc_length'));
             qa_opt('useo_social_tc_image', qa_post_text('useo_social_tc_image'));
             qa_opt('useo_social_tc_handler', qa_post_text('useo_social_tc_handler'));
-            qa_opt('useo_social_schema_enable', (int)qa_post_text('useo_social_schema_enable'));
-            qa_opt('useo_social_schema_page_type', (int)qa_post_text('useo_social_schema_page_type'));
-            qa_opt('useo_social_gp_thumbnail', qa_post_text('useo_social_gp_thumbnail'));
             qa_opt('useo_social_enable_editor', (int)qa_post_text('useo_social_enable_editor'));
             // Tags
             qa_opt('useo_tag_desc_max_len', (int)qa_post_text('useo_tag_desc_max_len'));
