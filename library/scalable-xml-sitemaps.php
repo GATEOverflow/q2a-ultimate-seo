@@ -46,7 +46,7 @@ class useo_scalable_xml_sitemaps
         if ($req == '') {
             $this->sitemap_index_header();
             $q_sitemaps = qa_db_read_one_assoc(qa_db_query_sub(
-                "SELECT count(*) as total from ^posts WHERE type='Q'"
+                "SELECT count(*) as total from ^posts  join ^posts ef on ^posts.postid = ef.postid and ef.postid not in(select postid  from ^posttags pt where pt.wordid  in (select wordid from ^words wd where wd.word in ('".$globalfiltertagstring."'))) where ^posts.type='Q'"
             ));
             $count = (int)qa_opt('useo_sitemap_question_count');
             $q_sitemap_count = $count > 0 ? ceil($q_sitemaps['total'] / $count) : 0;
